@@ -1,0 +1,21 @@
+<launch>
+
+<node
+pkg = "gcs_test"
+type = "gcsSend"
+name = "gcsSend_node"
+output = "screen"
+respawn = "true"
+launch-prefix= "xterm -e"
+/>
+
+<node
+pkg = "gcs_test"
+type = "gcsRecv"
+name = "gcsRecv_node"
+output = "screen"
+respawn = "true"
+launch-prefix= "xterm -e"
+/>
+
+</launch>

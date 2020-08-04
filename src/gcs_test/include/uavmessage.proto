@@ -1,0 +1,23 @@
+syntax="proto3";
+package uavMessage;
+
+message MsgHead
+{
+    uint32 stx = 1;
+    uint32 msg_type = 2;
+    uint32 cluster_id = 3;//系统初始化时所有无人机（车）默认群ID为0
+    uint32 src_uav_id = 4;
+    uint32 tgt_uav_count = 5;
+    uint32 topic_id = 6;
+    uint32 msg_id = 7;
+    uint32 msg_length = 8;
+    uint32 seq_num = 9;
+    repeated uint32 tgt_uav_id = 10;
+    uint32 reserved = 20;
+}
+
+message Message
+{
+    MsgHead msghead = 1;
+    bytes playload = 2;
+}

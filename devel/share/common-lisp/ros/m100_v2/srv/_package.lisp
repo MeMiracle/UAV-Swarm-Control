@@ -1,0 +1,10 @@
+(cl:defpackage m100_v2-srv
+  (:use )
+  (:export
+   "ENABLEMOTORS"
+   "<ENABLEMOTORS-REQUEST>"
+   "ENABLEMOTORS-REQUEST"
+   "<ENABLEMOTORS-RESPONSE>"
+   "ENABLEMOTORS-RESPONSE"
+  ))
+

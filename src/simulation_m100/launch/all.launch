@@ -1,0 +1,15 @@
+  <launch>
+  
+  <include file="$(find simulation_m100)/launch/hector_quadrotor_gazebo.launch">
+  </include>
+    <include file="$(find simulation_m100)/launch/simulation1_m100_0term.launch">
+  </include>
+    <include file="$(find simulation_m100)/launch/simulation2_m100_0term.launch">
+  </include>
+    <include file="$(find simulation_m100)/launch/simulation3_m100_0term.launch">
+  </include>
+  <include file="$(find simulation_m100)/launch/simulation4_m100_0term.launch">
+  </include>
+      <include file="$(find gcs_test)/launch/gcs_test.launch">
+  </include>
+  </launch>

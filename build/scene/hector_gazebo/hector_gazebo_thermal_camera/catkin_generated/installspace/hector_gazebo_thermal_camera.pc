@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/install
+
+Name: hector_gazebo_thermal_camera
+Description: Description of hector_gazebo_thermal_camera
+Version: 0.5.0
+Cflags: -I/home/uav/ROS/m100/install/include
+Libs: -L/home/uav/ROS/m100/install/lib 
+Requires: gazebo_plugins

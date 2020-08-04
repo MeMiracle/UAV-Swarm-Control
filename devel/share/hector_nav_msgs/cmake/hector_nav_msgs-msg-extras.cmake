@@ -1,0 +1,2 @@
+set(hector_nav_msgs_MESSAGE_FILES "")
+set(hector_nav_msgs_SERVICE_FILES "/home/uav/ROS/m100/src/scene/hector_slam/hector_nav_msgs/srv/GetDistanceToObstacle.srv;/home/uav/ROS/m100/src/scene/hector_slam/hector_nav_msgs/srv/GetRecoveryInfo.srv;/home/uav/ROS/m100/src/scene/hector_slam/hector_nav_msgs/srv/GetRobotTrajectory.srv;/home/uav/ROS/m100/src/scene/hector_slam/hector_nav_msgs/srv/GetSearchPosition.srv;/home/uav/ROS/m100/src/scene/hector_slam/hector_nav_msgs/srv/GetNormal.srv")

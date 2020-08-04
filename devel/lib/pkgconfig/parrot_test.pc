@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/devel
+
+Name: parrot_test
+Description: Description of parrot_test
+Version: 0.0.0
+Cflags: -I/home/uav/ROS/m100/devel/include
+Libs: -L/home/uav/ROS/m100/devel/lib 
+Requires: message_runtime

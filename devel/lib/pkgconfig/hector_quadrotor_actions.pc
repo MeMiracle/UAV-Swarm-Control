@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/devel
+
+Name: hector_quadrotor_actions
+Description: Description of hector_quadrotor_actions
+Version: 0.0.0
+Cflags: -I/home/uav/ROS/m100/src/scene/hector_quadrotor/hector_quadrotor_actions/include
+Libs: -L/home/uav/ROS/m100/devel/lib 
+Requires: roscpp

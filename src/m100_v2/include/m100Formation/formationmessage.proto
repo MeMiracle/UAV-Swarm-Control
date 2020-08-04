@@ -1,0 +1,15 @@
+syntax="proto3";
+package formationmsg;
+
+//用于编队控制内部系统使用的消息格式
+message FormationMsg
+{
+    uint32 getFormationID = 1;
+    uint32 uavID = 2;
+    bool formationflag = 3;
+    bool changeFormation = 4;
+    float formationPointX = 5;
+    float formationPointY = 6;
+    float formationPointZ = 7;
+}
+

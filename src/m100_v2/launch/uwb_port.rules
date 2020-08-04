@@ -1,0 +1,1 @@
+KERNEL=="ttyUSB*",KERNELS=="1-1.5",ATTRS{idVendor}=="10c4",ATTRS{idProduct}=="ea60",MODE:="0777",SYMLINK+="uwb_serial_port"

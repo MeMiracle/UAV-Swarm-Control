@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/install
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 1.5.7
+Cflags: -I/home/uav/ROS/m100/install/include
+Libs: -L/home/uav/ROS/m100/install/lib 
+Requires: message_runtime

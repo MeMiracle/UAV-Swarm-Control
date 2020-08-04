@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/install
+
+Name: hector_map_tools
+Description: Description of hector_map_tools
+Version: 0.3.5
+Cflags: -I/home/uav/ROS/m100/install/include
+Libs: -L/home/uav/ROS/m100/install/lib 
+Requires: nav_msgs

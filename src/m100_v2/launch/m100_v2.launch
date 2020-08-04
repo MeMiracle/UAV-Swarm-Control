@@ -1,0 +1,197 @@
+<launch>
+
+<include file="$(find dji_sdk)/launch/sdk.launch">
+    <arg name="m100_serial_port" value="/dev/m100_serial_port"/><!--"m100_serial_port" defined in /etc/udev/rules.d/serial port.rules-->
+</include>
+
+<include file="$(find rplidar_ros)/launch/rplidar.launch">
+    <arg name="rplidar_serial_port" value="/dev/rplidar_serial_port"/>
+</include>
+
+ <!-- 发布到不同无人机上时修改相应的参数 -->
+<arg name="_uav_id" value="1"/><!--无人机id（每台无人机必须不相同）-->
+<arg name="_uav_name" value="m100"/><!--无人机名称（每台无人机必须不相同）-->
+<arg name="_axis_id" value="2"/><!--坐标系：1为全局自然坐标系，2为局部实验坐标系-->
+
+<arg name="_gcs_address1" value="tcp://127.0.0.1:5000"/><!--10.8.0.3  192.168.199.184地面站1地址（每台无人机均相同）tcp://10.8.0.3:5000-->
+<arg name="_gcs_address2" value="tcp://127.0.0.1:5002"/><!--地面站2地址（每台无人机均相同）-->
+<arg name="_address_to_gcs" value="tcp://127.0.0.1:5001"/><!--本机对地面站的发送地址（实际场景中ip不相同，端口可以相同；仿真场景中ip相同，端口不相同）-->
+<arg name="_address_to_uav" value="tcp://*:6003"/><!--本机对其他无人机的发送地址（实际场景中ip不相同，端口可以相同；仿真场景中ip相同，端口不相同）-->
+
+<arg name="_uwb_serial_port" value="/dev/uwb_serial_port"/>
+
+<!--无论使用哪个坐标系，均需要正确设置GPS初始坐标原点，否则无人机将以本机启动时的位置为坐标原点，这将导致无人系统的坐标原点各不相同（除非让无人机在同一个位置启动）-->
+<!--//仿真时在gazebo中手动设定家的位置-->
+<!--<arg name="_longitude" value="113.415493"/>
+<arg name="_latitude" value="23.052475"/>
+<arg name="_altitude" value="0.0"/>-->
+
+<!--//实飞时根据实际场地手动设定家的位置（如果不设置则需要让无人机在同一个位置启动）-->
+<arg name="_longitude" value="-1"/>
+<arg name="_latitude" value="-1"/>
+<arg name="_altitude" value="-1"/>
+
+<!--实验场地坐标系在自然全局坐标系原点以东为正x、以北为正y、北偏东夹角为负（度）-->
+<arg name="_offset_x" value="0.0"/>
+<arg name="_offset_y" value="0.0"/>
+<arg name="_offset_z" value="0.0"/>
+<arg name="_offset_angle" value="-127.0"/>
+
+<!--避障距离阈值-->
+<arg name="_dist_threshold1" value="2.0"/>
+<arg name="_dist_threshold2" value="3.0"/>
+<arg name="_selfObstacle" value="0.6"/>
+
+<!--include file="$(find wifistatus)/launch/wifistatus.launch"-->
+    <!--arg name="name" value="$(arg _uav_name)"/-->
+    <!--arg name="axis" value="$(arg _axis_id)"/-->
+<!--/include-->
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_Recv"
+name = "Recv_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_id" type="int" value="$(arg _uav_id)"/>
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="gcs_address1" type="string" value="$(arg _gcs_address1)"/>
+<param name="gcs_address2" type="string" value="$(arg _gcs_address2)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_Send"
+name = "Send_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_id" type="int" value="$(arg _uav_id)"/>
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="address_to_gcs" type="string" value="$(arg _address_to_gcs)"/>
+<param name="address_to_uav" type="string" value="$(arg _address_to_uav)"/>
+<param name="axis_id" type="int" value="$(arg _axis_id)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_ExeCmd"
+name = "ExeCmd_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="axis_id" type="int" value="$(arg _axis_id)"/>
+<param name="latitude" type="double" value="$(arg _latitude)"/>
+<param name="longitude" type="double" value="$(arg _longitude)"/>
+<param name="altitude" type="double" value="$(arg _altitude)"/>
+<param name="offset_x" type="double" value="$(arg _offset_x)"/>
+<param name="offset_y" type="double" value="$(arg _offset_y)"/>
+<param name="offset_z" type="double" value="$(arg _offset_z)"/>
+<param name="offset_angle" type="double" value="$(arg _offset_angle)"/>
+<param name="dist_threshold1" type="double" value="$(arg _dist_threshold1)"/>
+<param name="dist_threshold2" type="double" value="$(arg _dist_threshold2)"/>
+<param name="selfObstacle" type="double" value="$(arg _selfObstacle)"/>
+</node>
+
+<!--
+<node
+pkg = "m100_v2"
+type = "m100_v2_PathPlan"
+name = "PathPlan_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_Location"
+name = "Location_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="uwb_serial_port" type="string" value="$(arg _uwb_serial_port)"/>
+<param name="latitude" type="double" value="$(arg _latitude)"/>
+<param name="longitude" type="double" value="$(arg _longitude)"/>
+<param name="altitude" type="double" value="$(arg _altitude)"/>
+<param name="offset_x" type="double" value="$(arg _offset_x)"/>
+<param name="offset_y" type="double" value="$(arg _offset_y)"/>
+<param name="offset_z" type="double" value="$(arg _offset_z)"/>
+<param name="offset_angle" type="double" value="$(arg _offset_angle)"/>
+</node>
+-->
+<node
+pkg = "m100_v2"
+type = "m100_v2_Formation"
+name = "Formation_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_id" type="int" value="$(arg _uav_id)"/>
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="axis_id" type="int" value="$(arg _axis_id)"/>
+</node>
+
+<!--<node
+pkg = "m100_v2"
+type = "m100_v2_SwarmIntel"
+name = "SwarmIntel_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true"
+launch-prefix= "xterm -e">
+<param name="uav_id" type="int" value="$(arg _uav_id)"/>
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="axis_id" type="int" value="$(arg _axis_id)"/>
+</node>-->
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_SIcooperativeSearch"
+name = "SIcooperativeSearch_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_id" type="int" value="$(arg _uav_id)"/>
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="axis_id" type="int" value="$(arg _axis_id)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_LocalDataPool"
+name = "LocalDataPool_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+<param name="axis_id" type="int" value="$(arg _axis_id)"/>
+<param name="offset_x" type="double" value="$(arg _offset_x)"/>
+<param name="offset_y" type="double" value="$(arg _offset_y)"/>
+<param name="offset_z" type="double" value="$(arg _offset_z)"/>
+<param name="offset_angle" type="double" value="$(arg _offset_angle)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_RemoteDataPool"
+name = "RemoteDataPool_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name="uav_name" type="string" value="$(arg _uav_name)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_RplidarScan"
+name = "RplidarScan_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name= "uav_name" type="string" value="$(arg _uav_name)"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_GimbalCOntrol"
+name = "GimbalCOntrol_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true">
+<param name= "uav_name" type="string" value="$(arg _uav_name)"/>
+</node>
+
+</launch>

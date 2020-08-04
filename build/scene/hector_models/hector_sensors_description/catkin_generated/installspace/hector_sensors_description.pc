@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/install
+
+Name: hector_sensors_description
+Description: Description of hector_sensors_description
+Version: 0.4.2
+Cflags: 
+Libs: -L/home/uav/ROS/m100/install/lib 
+Requires: 

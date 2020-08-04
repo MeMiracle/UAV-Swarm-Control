@@ -1,0 +1,32 @@
+<launch>
+
+<include file="$(find rplidar_ros)/launch/rplidar.launch">
+    <arg name="rplidar_serial_port" value="/dev/rplidar_serial_port"/><!--"m100_serial_port" defined in /etc/udev/rules.d/serial port.rules-->
+</include>
+
+<arg name="_uav_name" value="m100"/>
+
+<node
+pkg = "m100_v2"
+type = "m100_v2_RplidarScan"
+name = "RplidarScan_node_$(arg _uav_name)"
+output = "screen"
+respawn = "true"
+launch-prefix= "xterm -e">
+<param name= "uav_name" type="string" value="$(arg _uav_name)"/>
+<param name= "distanceThreshold" type="int" value="50"/>
+<param name= "logging" type="bool" value="1"/>
+<param name= "clusterMemberThreshold" type="int" value="4"/>
+</node>
+
+<node
+pkg = "m100_v2"
+type = "testObstacle"
+name = "testObstacle_$(arg _uav_name)"
+output = "screen"
+respawn = "true"
+launch-prefix= "xterm -e">
+<param name= "uav_name" type="string" value="$(arg _uav_name)"/>
+</node>
+
+</launch>

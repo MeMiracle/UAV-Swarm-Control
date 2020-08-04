@@ -1,0 +1,29 @@
+syntax="proto3";
+package feedbackData;
+
+message FeedbackData
+{
+    float batteryPercent = 1;//电量，百分百
+    uint32 state = 2;//状态
+
+    double px = 25;//相对定位，米
+    double py = 26;//相对定位，米
+    double pz = 27;//相对定位，米
+
+    double roll = 28;//横滚角，角度
+    double pitch = 29;//俯仰角，角度
+    double yaw = 30;//偏航角，角度
+
+    double vx = 31;//x轴线速度，米/秒
+    double vy = 32;//y轴线速度，米/秒
+    double vz = 33;//z轴线速度，米/秒
+    double vw = 34;//偏航角速度，角度/秒
+
+    double ax = 35;//x轴线加速度，米/秒平方
+    double ay = 36;//y轴线加速度，米/秒平方
+    double az = 37;//z轴线加速度，米/秒平方
+
+    double lat = 38;//纬度
+    double lon = 39;//经度
+    double alt = 40;//高度，米
+}

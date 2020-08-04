@@ -1,0 +1,2 @@
+set(m100_v2_MESSAGE_FILES "/home/uav/ROS/m100/src/m100_v2/msg/GimbalInfo.msg;/home/uav/ROS/m100/src/m100_v2/msg/UavBaseInfo.msg;/home/uav/ROS/m100/src/m100_v2/msg/ObstacleMsg.msg;/home/uav/ROS/m100/src/m100_v2/msg/CommInfo.msg;/home/uav/ROS/m100/src/m100_v2/msg/CmdResult.msg;/home/uav/ROS/m100/src/m100_v2/msg/Position.msg;/home/uav/ROS/m100/src/m100_v2/msg/PubSubUavMsg.msg;/home/uav/ROS/m100/src/m100_v2/msg/GimbalInfo.msg")
+set(m100_v2_SERVICE_FILES "/home/uav/ROS/m100/src/m100_v2/srv/EnableMotors.srv")

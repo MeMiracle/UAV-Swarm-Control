@@ -1,0 +1,15 @@
+<launch>
+
+<arg name="name" default="m100"/>
+<arg name="axis" default="2"/>
+<node
+pkg = "wifistatus"
+type = "wifi"
+name = "wifi_node"
+output = "screen"
+respawn = "true">
+<param name="uav_name" type="string" value="$(arg name)"/>
+<param name="axis_id" type="int" value="$(arg axis)"/>
+</node>
+
+</launch>

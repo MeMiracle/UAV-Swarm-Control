@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/install
+
+Name: gcs_test
+Description: Description of gcs_test
+Version: 0.0.0
+Cflags: -I/home/uav/ROS/m100/install/include
+Libs: -L/home/uav/ROS/m100/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/devel
+
+Name: parrot
+Description: Description of parrot
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/uav/ROS/m100/devel/lib 
+Requires: 

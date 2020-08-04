@@ -1,0 +1,8 @@
+prefix=/home/uav/ROS/m100/install
+
+Name: wifistatus
+Description: Description of wifistatus
+Version: 0.0.0
+Cflags: -I/home/uav/ROS/m100/install/include
+Libs: -L/home/uav/ROS/m100/install/lib 
+Requires: message_runtime

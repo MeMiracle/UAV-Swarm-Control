@@ -1,0 +1,84 @@
+<launch>
+
+  <!-- Start Gazebo with wg world running in (max) realtime -->
+  <include file="$(find hector_gazebo_worlds)/launch/start.launch">
+   <arg name="world" value="$(find hector_gazebo_worlds)/worlds/my_world.world"/> <!--empty_world.world zlx_world.world my_world.world willow_garage.world-->
+  </include>
+
+  <!-- Spawn simulated quadrotor uav -->
+  <!--<include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch" >
+  <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor_hokuyo_utm30lx.gazebo.xacro"/>
+  <arg name="controllers" value="
+      controller/attitude
+      controller/velocity
+      controller/position
+      "/>
+  </include>-->
+
+  <group ns="uav1">
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+      <arg name="name" value="uav1" />
+      <arg name="tf_prefix" value="uav1" />
+      <arg name="model" value="$(find hector_quadrotor_description)/urdf/my_quadrotor1.gazebo.xacro"/>
+      <arg name="controllers" value="
+        controller/attitude
+        controller/velocity
+        controller/position
+        "/>
+        <arg name="x" value="-2.0" />
+        <arg name="y" value="5.5" />
+    </include>
+  </group>
+
+  <group ns="uav2">
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+      <arg name="name" value="uav2" />
+      <arg name="tf_prefix" value="uav2" />
+      <arg name="model" value="$(find hector_quadrotor_description)/urdf/my_quadrotor2.gazebo.xacro" />
+      <arg name="x" value="0.0" />
+      <arg name="y" value="5.5" />
+    </include>
+  </group>
+
+    <group ns="uav3">
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+      <arg name="name" value="uav3" />
+      <arg name="tf_prefix" value="uav3" />
+      <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+      <arg name="x" value="2.0" />
+      <arg name="y" value="5.5" />
+    </include>
+  </group>
+
+      <group ns="uav4">
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+      <arg name="name" value="uav4" />
+      <arg name="tf_prefix" value="uav4" />
+      <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+      <arg name="x" value="4.0" />
+      <arg name="y" value="5.5" />
+    </include>
+  </group>
+
+        <!--<group ns="uav5">
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+      <arg name="name" value="uav5" />
+      <arg name="tf_prefix" value="uav5" />
+      <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+      <arg name="x" value="15.0" />
+      <arg name="y" value="6.0" />
+    </include>
+  </group>
+
+        <group ns="uav6">
+    <include file="$(find hector_quadrotor_gazebo)/launch/spawn_quadrotor.launch">
+      <arg name="name" value="uav6" />
+      <arg name="tf_prefix" value="uav6" />
+      <arg name="model" value="$(find hector_quadrotor_description)/urdf/quadrotor.gazebo.xacro" />
+      <arg name="x" value="10.0" />
+      <arg name="y" value="6.0" />
+    </include>
+  </group>-->
+  
+
+</launch>

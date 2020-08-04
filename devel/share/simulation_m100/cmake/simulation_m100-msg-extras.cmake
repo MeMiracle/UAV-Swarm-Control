@@ -1,0 +1,2 @@
+set(simulation_m100_MESSAGE_FILES "/home/uav/ROS/m100/src/simulation_m100/msg/UavBaseInfo.msg;/home/uav/ROS/m100/src/simulation_m100/msg/CommInfo.msg;/home/uav/ROS/m100/src/simulation_m100/msg/ObstacleMsg.msg;/home/uav/ROS/m100/src/simulation_m100/msg/CmdResult.msg;/home/uav/ROS/m100/src/simulation_m100/msg/Position.msg;/home/uav/ROS/m100/src/simulation_m100/msg/PubSubUavMsg.msg")
+set(simulation_m100_SERVICE_FILES "/home/uav/ROS/m100/src/simulation_m100/srv/EnableMotors.srv")

@@ -1,0 +1,18 @@
+syntax="proto3";
+package uwblpsMessage;
+
+//地面站与无人机（车）通信使用
+message uwblpsMessage
+{
+    double linear_x = 1;
+    double linear_y = 2;
+    double linear_z = 3;
+}
+
+//地面站内部使用
+message positionMessage
+{
+    uint32 uavid = 1;
+    uint32 clusterid = 2;//系统初始化时所有无人机（车）默认群ID为0
+    uwblpsMessage uwblpsmsg = 3;
+}

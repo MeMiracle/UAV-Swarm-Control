@@ -1,0 +1,11 @@
+syntax="proto3";
+package mapbuffer;
+
+message MapBuffer
+{
+    repeated float MB_item = 1;
+    int32 seedi = 2;
+    int32 seedj = 3;
+    int32 length = 4;
+    int32 usid = 5; 
+}

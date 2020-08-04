@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/dji_sdk_generate_messages_eus"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/MissionWaypointAction.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/MissionWaypointTask.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/Gimbal.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/WaypointList.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/MissionWaypoint.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/Waypoint.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/MobileData.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/msg/MissionHotpointTask.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MFIOConfig.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/CameraAction.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionHpResetYaw.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/SendMobileData.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/QueryDroneVersion.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/SetLocalPosRef.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/StereoVGASubscription.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/SDKControlAuthority.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionWpGetInfo.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionHpAction.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MFIOSetValue.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionHpUpload.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/DroneArmControl.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionWpAction.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionWpUpload.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/Activation.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionStatus.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/SetHardSync.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionWpSetSpeed.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionHpGetInfo.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/Stereo240pSubscription.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionHpUpdateYawRate.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/DroneTaskControl.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionHpUpdateRadius.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/MissionWpGetSpeed.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/srv/StereoDepthSubscription.l"
+  "/home/uav/ROS/m100/devel/share/roseus/ros/dji_sdk/manifest.l"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/dji_sdk_generate_messages_eus.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
