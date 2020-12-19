@@ -8,7 +8,7 @@
     <param name="app_id" type="int" value="1027573"/>
     <param name="app_version" type="int" value="1"/>
     <param name="align_time" type="bool" value="false"/>
-    <param name="enc_key" type="string" value="4ec5625bb6de9875b844cb8f8937012b21caeba708dcc8089995b4c78e8068c8"/>
+    <param name="enc_key" type="string" value="4ec5625bb6de9875b844cb8f8937012b21caeba708dcc8089995b4c78e8068c8x"/>
     <param name="use_broadcast" type="bool" value="false"/>
     </node>
 </launch>
